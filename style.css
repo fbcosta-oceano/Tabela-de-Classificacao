@@ -17,6 +17,10 @@
     border-collapse: collapse;
   }
   
+  p {
+    color:#da1e26
+  }
+
   h1 {
     color: white;
   }

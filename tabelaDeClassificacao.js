@@ -31,6 +31,7 @@ atualizaValores()
 function atualizaValores() {
 
   elementoTabela.innerHTML = ""
+  console.log(jogador)
   jogador.forEach((jogador, index) => {
     elementoTabela.innerHTML += `
       <tr>
@@ -47,18 +48,25 @@ function atualizaValores() {
 }
 
 function adicionarJogador() {
-  var objectJogador = {
-    nome: document.getElementById('jogadorId').value,
-    vitoria: 0,
-    empate: 0,
-    derrota: 0,
-    pontos: 0
+  if (document.getElementById('jogadorId').value=='') {
+    document.getElementById('error').innerHTML='Nome de jogado não pode estar vazio. Tente novamente'
   }
-  jogador.push(objectJogador)
-  listaJogadores.push(document.getElementById('jogadorId').value)
-  atualizaValores()
-  document.getElementById('jogadorId').value = ""
+  else {
+    document.getElementById('error').innerHTML=''
+    var objectJogador = {
+      nome: document.getElementById('jogadorId').value,
+      vitoria: 0,
+      empate: 0,
+      derrota: 0,
+      pontos: 0
+    }
+    jogador.push(objectJogador)
+    listaJogadores.push(document.getElementById('jogadorId').value)
+    atualizaValores()
+    document.getElementById('jogadorId').value = ""
+  }
 }
+
 function adicionarVitoria(index) {
   jogador[index].vitoria++
   jogador[index].pontos = jogador[index].pontos + 3
