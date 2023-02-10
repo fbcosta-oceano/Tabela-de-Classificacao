@@ -1,6 +1,18 @@
 var listaJogadores = ['Paulo','Rafa']
 var elementoTabela = document.getElementById('tabelaJogadores')
 var objectJogador = {}, jogador = []
+var input = document.getElementById('jogadorId')
+
+// Execute a function when the user presses a key on the keyboard
+input.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById('adicionarJogadorBtn').click();
+  }
+});
 
 for (var i=0; i<listaJogadores.length; i++) {
   var objectJogador = {
@@ -13,6 +25,8 @@ for (var i=0; i<listaJogadores.length; i++) {
   jogador.push(objectJogador)
 }
 atualizaValores()
+
+
 
 function atualizaValores() {
 
@@ -34,16 +48,16 @@ function atualizaValores() {
 
 function adicionarJogador() {
   var objectJogador = {
-    nome: document.getElementById('jogador').value,
+    nome: document.getElementById('jogadorId').value,
     vitoria: 0,
     empate: 0,
     derrota: 0,
     pontos: 0
   }
   jogador.push(objectJogador)
-  listaJogadores.push(document.getElementById('jogador').value)
+  listaJogadores.push(document.getElementById('jogadorId').value)
   atualizaValores()
-  document.getElementById('jogador').value = ""
+  document.getElementById('jogadorId').value = ""
 }
 function adicionarVitoria(index) {
   jogador[index].vitoria++
