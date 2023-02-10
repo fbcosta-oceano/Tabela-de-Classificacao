@@ -31,7 +31,6 @@ atualizaValores()
 function atualizaValores() {
 
   elementoTabela.innerHTML = ""
-  console.log(jogador)
   jogador.forEach((jogador, index) => {
     elementoTabela.innerHTML += `
       <tr>
@@ -49,7 +48,10 @@ function atualizaValores() {
 
 function adicionarJogador() {
   if (document.getElementById('jogadorId').value=='') {
-    document.getElementById('error').innerHTML='Nome de jogado não pode estar vazio. Tente novamente'
+    document.getElementById('error').innerHTML='Nome de jogador não pode estar vazio. Tente novamente'
+  }
+  else if (listaJogadores.includes(document.getElementById('jogadorId').value)) {
+    document.getElementById('error').innerHTML='Nome de jogador já existe. Tente novamente'    
   }
   else {
     document.getElementById('error').innerHTML=''
@@ -87,5 +89,14 @@ function adicionarDerrota(index) {
 function apagaTodosJogadores() {
   listaJogadores = []
   jogador = []
+  atualizaValores()
+}
+function zeraPlacar() {
+  jogador.forEach((jogador, index) => {
+    jogador.vitoria = 0
+    jogador.empate = 0
+    jogador.derrota = 0
+    jogador.pontos = 0
+  })
   atualizaValores()
 }
