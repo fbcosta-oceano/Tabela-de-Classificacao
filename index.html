@@ -1,0 +1,34 @@
+<html>
+
+<link href="style.css" rel="stylesheet">
+<script src="tabelaDeClassificacao.js" defer></script>
+
+<head>
+  <title>
+    Imersão Dev
+  </title>
+</head>
+
+<body>
+  <h1>Classificação Alura</h1>
+  <input type="text" id="jogador" name="jogador" placeholder="Insira o nome do nove jogador">
+  <button id="adicionarJogador" onClick="adicionarJogador()">Adicionar Jogador</button>
+
+  <table style="width:100%">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Vitórias</th>
+        <th>Empates</th>
+        <th>Derrotas</th>
+        <th>Pontos</th>
+        <th colspan="3">Ações</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaJogadores">
+    </tbody>
+  </table>
+  <button id="apagaTodosJogadores" onClick="apagaTodosJogadores()">Apagar Todos os Jogadores</button>
+</body>
+
+</html>
